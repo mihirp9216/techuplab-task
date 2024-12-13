@@ -7,7 +7,6 @@ import { AddPinComponent } from './add-pin/add-pin.component';
 
 @NgModule({
   declarations: [
-    PinsListComponent,
     AddPinComponent
   ],
   imports: [
