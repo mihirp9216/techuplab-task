@@ -39,24 +39,30 @@
                 </div>
                 <div class="form-group">
                     <label>Region</label>
-                    <input
-                        type="text"
+                    <ngx-select 
+                        [items]="regionData"
                         formControlName="region"
+                        optionValueField="region"
+                        optionTextField="region"
+                        placeholder="Select region"
                         class="form-control"
-                        [ngClass]="{ 'is-invalid': submitted && f['region'].errors }"
-                    />
+                        [ngClass]="{ 'is-invalid': submitted && f['region'].errors }">
+                    </ngx-select>
                     <div *ngIf="submitted && f['region'].errors" class="invalid-feedback">
                         <div *ngIf="f['region'].errors['required']">Region is required</div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Country</label>
-                    <input
-                        type="text"
+                    <ngx-select 
+                        [items]="countryData"
                         formControlName="country"
+                        optionValueField="country"
+                        optionTextField="country"
+                        placeholder="Select country"
                         class="form-control"
-                        [ngClass]="{ 'is-invalid': submitted && f['country'].errors }"
-                    />
+                        [ngClass]="{ 'is-invalid': submitted && f['region'].errors }">
+                    </ngx-select>
                     <div *ngIf="submitted && f['country'].errors" class="invalid-feedback">
                         <div *ngIf="f['country'].errors['required']">Country is required</div>
                     </div>

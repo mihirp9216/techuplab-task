@@ -10,6 +10,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomerModule } from './customers/customers.module';
 import { PinsModule } from './pins/pins.module';
+import { INgxSelectOptions, NgxSelectModule } from 'ngx-select-ex';
+
+const CustomSelectOptions: INgxSelectOptions = { // Check the interface for more options
+  optionValueField: 'id',
+  optionTextField: 'name'
+};
 
 @NgModule({
   declarations: [
@@ -25,7 +31,8 @@ import { PinsModule } from './pins/pins.module';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     CustomerModule,
-    PinsModule
+    PinsModule,
+    NgxSelectModule.forRoot(CustomSelectOptions)
   ],
   providers: [],
   bootstrap: [AppComponent]
