@@ -61,7 +61,7 @@
                         optionTextField="country"
                         placeholder="Select country"
                         class="form-control"
-                        [ngClass]="{ 'is-invalid': submitted && f['region'].errors }">
+                        [ngClass]="{ 'is-invalid': submitted && f['country'].errors }">
                     </ngx-select>
                     <div *ngIf="submitted && f['country'].errors" class="invalid-feedback">
                         <div *ngIf="f['country'].errors['required']">Country is required</div>
