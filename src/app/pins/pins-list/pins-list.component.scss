@@ -2,3 +2,12 @@
     margin-left: 100px;
     margin-top: 150px
 }
+.main-div {
+    margin: 5px;
+    .container {
+        padding: 5px 0;
+        button.btn.btn-secondary {
+            margin: 5px;
+        }
+    }
+}

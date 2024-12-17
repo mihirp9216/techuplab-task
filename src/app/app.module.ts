@@ -1,27 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { PinsListComponent } from './pins/pins-list/pins-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FileUploadModule } from 'ng2-file-upload';
+import { INgxSelectOptions, NgxSelectModule } from 'ngx-select-ex';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { CustomerModule } from './customers/customers.module';
 import { PinsModule } from './pins/pins.module';
-import { INgxSelectOptions, NgxSelectModule } from 'ngx-select-ex';
 
-const CustomSelectOptions: INgxSelectOptions = { // Check the interface for more options
+const CustomSelectOptions: INgxSelectOptions = {
+  // Check the interface for more options
   optionValueField: 'id',
-  optionTextField: 'name'
+  optionTextField: 'name',
 };
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PinsListComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -32,9 +30,10 @@ const CustomSelectOptions: INgxSelectOptions = { // Check the interface for more
     ReactiveFormsModule,
     CustomerModule,
     PinsModule,
-    NgxSelectModule.forRoot(CustomSelectOptions)
+    NgxSelectModule.forRoot(CustomSelectOptions),
+    FileUploadModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

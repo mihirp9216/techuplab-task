@@ -4,17 +4,9 @@ import { CreateCustomerComponent } from './create-customer/create-customer.compo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxSelectModule } from 'ngx-select-ex';
 
-
-
 @NgModule({
-  declarations: [
-    CreateCustomerComponent
-  ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    NgxSelectModule
-  ]
+  declarations: [CreateCustomerComponent],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, NgxSelectModule],
+  exports: [CreateCustomerComponent],
 })
-export class CustomerModule { }
+export class CustomerModule {}

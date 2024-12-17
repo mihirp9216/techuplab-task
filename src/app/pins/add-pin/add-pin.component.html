@@ -1,1 +1,97 @@
-<p>add-pin works!</p>
+<!-- Modal starts -->
+<div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+        <!-- Modal form control starts -->
+        <form [formGroup]="pinForm" (ngSubmit)="onSubmit()">
+            <!-- Modal header starts -->
+            <div class="modal-header">
+                <h5 class="modal-title">Create Pin</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="activeModal.dismiss('Cross click')">
+                </button>
+            </div>
+            <!-- Modal header ends -->
+            <!-- Modal Body starts -->
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Title*</label>
+                    <input
+                        type="text"
+                        formControlName="title"
+                        class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f['title'].errors }"
+                    />
+                    <div *ngIf="submitted && f['title'].errors" class="invalid-feedback">
+                        <div *ngIf="f['title'].errors['required']">Title is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Select Image*</label>
+                    <label ng2FileDrop
+                        [uploader]="uploader"
+                        (fileOver)="fileOverBase($event)"
+                        (onFileSelected)="onFileSelected($event)"
+                        [ngClass]="{'another-file-over-class': hasBaseDropZoneOver}"
+                        class="well my-drop-zone">
+                        Choose & Drag and Drop File Here
+                        <input type="file"
+                        formControlName="image"
+                        #fileInput
+                        (click)="fileInput.click()"
+                        class="form-control"
+                        ng2FileSelect
+                        [uploader]="uploader"
+                        style="display: none" 
+                        [ngClass]="{ 'is-invalid': submitted && f['image'].errors }"/>
+                    </label>
+                    <div *ngIf="submitted && f['image'].errors" class="invalid-feedback">
+                        <div *ngIf="f['image'].errors['required']">Image is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Select Collaboratory*</label>
+                    <ngx-select 
+                        [items]="collaboratory"
+                        formControlName="collaborators"
+                        optionValueField="collaboratory"
+                        optionTextField="collaboratory"
+                        placeholder="Select collaboratory"
+                        [multiple]="true"
+                        class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f['collaborators'].errors }">
+                    </ngx-select>
+                    <div *ngIf="submitted && f['collaborators'].errors" class="invalid-feedback">
+                        <div *ngIf="f['collaborators'].errors['required']">Collaboratory is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <fieldset class="form-group row">
+                        <legend class="col-form-legend col-sm-2">Privacy*</legend>
+                        <div class="col-sm-10">
+                            <div class="form-check">
+                                <label class="radio-inline">
+                                    <input id="private" type="radio" value="private" name="privacy" formControlName="privacy"
+                                        class="form-control radio-inline" [ngClass]="{ 'is-invalid': submitted && f['privacy'].errors }" />
+                                    <label for="private">Private</label>
+                                </label>
+                                <label class="radio-inline" style="padding-left:15px;">
+                                    <input id="public" type="radio" value="public" name="privacy" formControlName="privacy"
+                                        class="form-control radio-inline" [ngClass]="{ 'is-invalid': submitted && f['privacy'].errors }" />
+                                    <label for="public">Public</label>
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <!-- Modal body ends -->
+             <!-- Modal Footer starts -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="activeModal.dismiss('Close click')">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+            <!-- Modal Footer ends -->
+        </form>
+        <!-- Modal form control ends -->
+    </div>
+</div>
+<!-- Modal ends -->

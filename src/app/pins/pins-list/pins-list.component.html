@@ -1,6 +1,30 @@
-<button type="button" class="btn btn-secondary" (click)="openModal()">
-    + Add Customer
-</button>
-<button type="button" class="btn btn-secondary">
-    + Add Pin
-</button>
+<div class="main-div">
+    <div class="container text-right">
+        <button type="button" class="btn btn-secondary" (click)="openModal('customerModal')">
+            + Add Customer
+        </button>
+        <button type="button" class="btn btn-secondary" (click)="openModal('pinModal')">
+            + Add Pin
+        </button>
+    </div>
+    <div>
+        <table class="table table-borderless table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Collaboratory</th>
+                    <th scope="col">Privacy</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let i of pinRecords">
+                    <th scope="row">{{i.title}}</th>
+                    <td><img [src]="i.image" alt="Image Source" /></td>
+                    <td>{{i.collaborators}}</td>
+                    <td>{{i.privacy}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

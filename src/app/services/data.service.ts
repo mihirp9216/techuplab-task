@@ -19,8 +19,4 @@ export class DataService {
   getRegion() {
     return this.http.get(this.url);
   }
-
-  getCountries(regionId: string){
-    return this.http.get(this.url + '/' + regionId);
-  }
 }
